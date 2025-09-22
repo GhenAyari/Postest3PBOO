@@ -27,9 +27,140 @@ Menambahkan atribut khusus: menyusui (true/false).
 Constructor memanggil constructor super dari Hewan agar atribut dasar tetap ada.
 Ada Overriding pada method toString() menambahkan informasi apakah hewan menyusui atau tidak.
 <br><br>
-<img width="1061" height="587" alt="image" src="https://github.com/user-attachments/assets/b2aa9ae4-1fc2-4c68-9f35-7c3913eaa6c8" />
+<img width="1061" height="587" alt="image" src="https://github.com/user-attachments/assets/1ca89d5a-314d-4764-ab03-6a01f41909d5" />
 <br>
 Burung juga subclass dari Hewan.
 Atribut tambahan: bisaTerbang.
 Constructor tetap memanggil constructor Hewan dengan super(...).
 toString() dioverride untuk menampilkan informasi tambahan apakah burung bisa terbang.
+<br><br>
+
+```
+package service;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import model.Hewan;
+import model.Mamalia;
+import model.Burung;
+
+public class HewanService {
+    private ArrayList<Hewan> daftarHewan = new ArrayList<>();
+    private Scanner input = new Scanner(System.in);
+
+    public void tambahHewan() {
+        System.out.println("Pilih tipe hewan:");
+        System.out.println("1. Mamalia");
+        System.out.println("2. Burung");
+        System.out.println("3. Hewan umum");
+        System.out.print("Pilihan: ");
+        int pilihan = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Nama Hewan   : ");
+        String nama = input.nextLine();
+        System.out.print("Jenis Hewan  : ");
+        String jenis = input.nextLine();
+        System.out.print("Habitat Hewan: ");
+        String habitat = input.nextLine();
+        System.out.print("Umur Hewan   : ");
+        float umur = input.nextFloat();
+        input.nextLine();
+
+        Hewan hewan;
+
+        switch (pilihan) {
+            case 1:
+                System.out.print("Apakah menyusui? (true/false): ");
+                boolean menyusui = input.nextBoolean();
+                input.nextLine();
+                hewan = new Mamalia(nama, jenis, habitat, umur, menyusui);
+                break;
+            case 2:
+                System.out.print("Apakah bisa terbang? (true/false): ");
+                boolean bisaTerbang = input.nextBoolean();
+                input.nextLine();
+                hewan = new Burung(nama, jenis, habitat, umur, bisaTerbang);
+                break;
+            default:
+                hewan = new Hewan(nama, jenis, habitat, umur);
+        }
+
+        daftarHewan.add(hewan);
+        System.out.println("Hewan berhasil ditambahkan!");
+    }
+
+    public void lihatHewan() {
+        if (daftarHewan.isEmpty()) {
+            System.out.println("Belum ada data hewan.");
+        } else {
+            for (int i = 0; i < daftarHewan.size(); i++) {
+                System.out.println((i + 1) + ". " + daftarHewan.get(i));
+            }
+        }
+    }
+
+    public void ubahHewan() {
+        lihatHewan();
+        if (!daftarHewan.isEmpty()) {
+            System.out.print("Pilih nomor hewan yang ingin diubah: ");
+            int index = input.nextInt();
+            input.nextLine();
+
+            if (index > 0 && index <= daftarHewan.size()) {
+                Hewan hewanLama = daftarHewan.get(index - 1);
+
+                System.out.print("Nama Hewan Baru   : ");
+                String nama = input.nextLine();
+                System.out.print("Jenis Hewan Baru  : ");
+                String jenis = input.nextLine();
+                System.out.print("Habitat Hewan Baru: ");
+                String habitat = input.nextLine();
+                System.out.print("Umur Hewan Baru   : ");
+                float umur = input.nextFloat();
+                input.nextLine();
+
+                if (hewanLama instanceof Mamalia) {
+                    System.out.print("Apakah menyusui? (true/false): ");
+                    boolean menyusui = input.nextBoolean();
+                    input.nextLine();
+                    daftarHewan.set(index - 1, new Mamalia(nama, jenis, habitat, umur, menyusui));
+                } else if (hewanLama instanceof Burung) {
+                    System.out.print("Apakah bisa terbang? (true/false): ");
+                    boolean bisaTerbang = input.nextBoolean();
+                    input.nextLine();
+                    daftarHewan.set(index - 1, new Burung(nama, jenis, habitat, umur, bisaTerbang));
+                } else {
+                    daftarHewan.set(index - 1, new Hewan(nama, jenis, habitat, umur));
+                }
+
+                System.out.println("Data hewan berhasil diubah!");
+            } else {
+                System.out.println("Nomor tidak valid.");
+            }
+        }
+    }
+
+    public void hapusHewan() {
+        lihatHewan();
+        if (!daftarHewan.isEmpty()) {
+            System.out.print("Pilih nomor hewan yang ingin dihapus: ");
+            int index = input.nextInt();
+            input.nextLine();
+
+            if (index > 0 && index <= daftarHewan.size()) {
+                daftarHewan.remove(index - 1);
+                System.out.println("Data hewan berhasil dihapus!");
+            } else {
+                System.out.println("Nomor tidak valid.");
+            }
+        }
+    }
+}
+```
+Bertugas sebagai CRUD service:
+tambahHewan() → user bisa pilih apakah mau tambah Mamalia, Burung, atau Hewan umum.
+lihatHewan() → menampilkan daftar semua hewan yang ada.
+ubahHewan() → bisa mengupdate data hewan, menyesuaikan apakah dia subclass Mamalia/Burung.
+hapusHewan() → menghapus data hewan dari daftar.
+Menggunakan ArrayList<Hewan> → memungkinkan menyimpan polymorphic object (Hewan, Mamalia, Burung).
