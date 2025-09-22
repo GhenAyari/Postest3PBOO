@@ -14,17 +14,17 @@ Program ini adalah sebuah program sederhana CRUD dengan tema manajemen daftar he
 Superclass (induk) yang mewakili semua hewan.
 <br>
 Menggunakan Encapsulation:
-Atribut (nama, jenis, habitat, umur) bersifat private.
-Disediakan getter & setter untuk akses dan modifikasi.
-Memiliki toString() untuk menampilkan informasi dasar hewan.
+Atribut (nama, jenis, habitat, umur) bersifat private
+Disediakan getter & setter untuk akses dan modifikasi
+Memiliki toString() untuk menampilkan informasi dasar hewan
 Class ini nanti akan diwarisi (inheritance) oleh Mamalia dan Burung.
 <br><br>
 <img width="1120" height="583" alt="image" src="https://github.com/user-attachments/assets/a41f0252-26ec-4936-859b-87fb9111063e" />
 <br>
 Mamalia adalah subclass dari Hewan.
 <br>
-Menambahkan atribut khusus: menyusui (true/false).
-Constructor memanggil constructor super dari Hewan agar atribut dasar tetap ada.
+Menambahkan atribut khusus: menyusui (true/false)
+Constructor memanggil constructor super dari Hewan agar atribut dasar tetap ada
 Ada Overriding pada method toString() menambahkan informasi apakah hewan menyusui atau tidak.
 <br><br>
 <img width="1061" height="587" alt="image" src="https://github.com/user-attachments/assets/1ca89d5a-314d-4764-ab03-6a01f41909d5" />
@@ -158,9 +158,9 @@ public class HewanService {
     }
 }
 ```
-Bertugas sebagai CRUD service:
-tambahHewan() → user bisa pilih apakah mau tambah Mamalia, Burung, atau Hewan umum.
-lihatHewan() → menampilkan daftar semua hewan yang ada.
-ubahHewan() → bisa mengupdate data hewan, menyesuaikan apakah dia subclass Mamalia/Burung.
-hapusHewan() → menghapus data hewan dari daftar.
-Menggunakan ArrayList<Hewan> → memungkinkan menyimpan polymorphic object (Hewan, Mamalia, Burung).
+Bertugas sebagai CRUD service:<br>
+tambahHewan() user bisa pilih apakah mau tambah Mamalia, Burung, atau Hewan umum<br>
+lihatHewan() menampilkan daftar semua hewan yang ada<br>
+ubahHewan() bisa mengupdate data hewan, menyesuaikan apakah dia subclass Mamalia/Burung<br>
+hapusHewan() menghapus data hewan dari daftar<br>
+Menggunakan ArrayList<Hewan> memungkinkan menyimpan polymorphic object (Hewan, Mamalia, Burung).
