@@ -27,3 +27,9 @@ Menambahkan atribut khusus: menyusui (true/false).
 Constructor memanggil constructor super dari Hewan agar atribut dasar tetap ada.
 Ada Overriding pada method toString() menambahkan informasi apakah hewan menyusui atau tidak.
 <br><br>
+<img width="1061" height="587" alt="image" src="https://github.com/user-attachments/assets/b2aa9ae4-1fc2-4c68-9f35-7c3913eaa6c8" />
+<br>
+Burung juga subclass dari Hewan.
+Atribut tambahan: bisaTerbang.
+Constructor tetap memanggil constructor Hewan dengan super(...).
+toString() dioverride untuk menampilkan informasi tambahan apakah burung bisa terbang.
