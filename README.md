@@ -164,3 +164,16 @@ lihatHewan() menampilkan daftar semua hewan yang ada<br>
 ubahHewan() bisa mengupdate data hewan, menyesuaikan apakah dia subclass Mamalia/Burung<br>
 hapusHewan() menghapus data hewan dari daftar<br>
 Menggunakan ArrayList<Hewan> memungkinkan menyimpan polymorphic object (Hewan, Mamalia, Burung).
+<br><br>
+## Output Tambahan Dari Yang Sebelumnya
+<img width="590" height="514" alt="Screenshot 2025-09-22 225703" src="https://github.com/user-attachments/assets/b03d9be2-7310-4d13-84c4-3b179e5012c2" />
+<br>
+Jika memilih menu 1 ada tambahan yang baru yaitu Pilih Tipe Hewan. Burung, mamalia atau hewan umum.
+<br>
+<img width="435" height="461" alt="Screenshot 2025-09-22 225834" src="https://github.com/user-attachments/assets/7c2cf2ae-ac64-4c2d-aaa9-eb190b627208" />
+<br>
+Untuk inputnya masih sama seperti sebelumnya, yang berbeda ada tambahan apakah hewan menyusui (karena dia mamalia) dan true atau false.
+<br>
+<img width="482" height="461" alt="Screenshot 2025-09-22 225851" src="https://github.com/user-attachments/assets/4ba747ac-b636-4d50-965f-dd7535eab0bc" />
+Begitupun juga di bagian tipe hewan Burung
+
