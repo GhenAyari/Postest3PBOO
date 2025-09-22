@@ -175,5 +175,6 @@ Jika memilih menu 1 ada tambahan yang baru yaitu Pilih Tipe Hewan. Burung, mamal
 Untuk inputnya masih sama seperti sebelumnya, yang berbeda ada tambahan apakah hewan menyusui (karena dia mamalia) dan true atau false.
 <br>
 <img width="482" height="461" alt="Screenshot 2025-09-22 225851" src="https://github.com/user-attachments/assets/4ba747ac-b636-4d50-965f-dd7535eab0bc" />
+<br>
 Begitupun juga di bagian tipe hewan Burung
 
